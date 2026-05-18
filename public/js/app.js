@@ -45,6 +45,7 @@ const fallbackImage =
   "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1200&q=80";
 
 const DEMO_HOST_ID = 1;
+const API_BASE = window.location.hostname.includes("vercel.app") ? "https://staynest-rental-platform.onrender.com" : "";
 
 // Premium Vector SVGs
 const bedSvg = `<svg class="svg-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px; opacity: 0.85;"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg>`;
@@ -258,7 +259,7 @@ const loadCurrentUser = async () => {
   }
 
   try {
-    const response = await fetch("/api/auth/me", { headers: { ...authHeaders() } });
+    const response = await fetch(`${API_BASE}/api/auth/me`, { headers: { ...authHeaders() } });
     const data = await response.json();
     if (!response.ok || !data.user) {
       setAuthState("", null);
@@ -636,7 +637,7 @@ const wireBookingButtons = () => {
         message.className = "booking-message";
         message.textContent = "Checking availability...";
         const availabilityResponse = await fetch(
-          `/api/properties/${propertyId}/availability?checkIn=${encodeURIComponent(checkIn)}&checkOut=${encodeURIComponent(checkOut)}`
+          `${API_BASE}/api/properties/${propertyId}/availability?checkIn=${encodeURIComponent(checkIn)}&checkOut=${encodeURIComponent(checkOut)}`
         );
         const availabilityData = await availabilityResponse.json();
 
@@ -654,7 +655,7 @@ const wireBookingButtons = () => {
         if (!currentUser) {
           throw new Error("Please sign in first.");
         }
-        const bookingResponse = await fetch("/api/bookings", {
+        const bookingResponse = await fetch(`${API_BASE}/api/bookings`, {
           method: "POST",
           headers: { "Content-Type": "application/json", ...authHeaders() },
           body: JSON.stringify({
@@ -698,7 +699,7 @@ const wireBlockDatesButtons = () => {
       }
 
       try {
-        const response = await fetch(`/api/properties/${propertyId}/block-dates`, {
+        const response = await fetch(`${API_BASE}/api/properties/${propertyId}/block-dates`, {
           method: "POST",
           headers: { "Content-Type": "application/json", ...authHeaders() },
           body: JSON.stringify({ startDate, endDate }),
@@ -725,7 +726,7 @@ const wireHostBookingUpdateButtons = () => {
       const statusNode = document.getElementById(`host-booking-status-${bookingId}`);
 
       try {
-        const response = await fetch(`/api/bookings/${bookingId}/status`, {
+        const response = await fetch(`${API_BASE}/api/bookings/${bookingId}/status`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json", ...authHeaders() },
           body: JSON.stringify({ status }),
@@ -752,7 +753,7 @@ const loadGuestBookings = async () => {
   }
 
   try {
-    const response = await fetch("/api/bookings/my", { headers: { ...authHeaders() } });
+    const response = await fetch(`${API_BASE}/api/bookings/my`, { headers: { ...authHeaders() } });
     const data = await response.json();
     if (!response.ok) {
       throw new Error(data.message || "Failed to load bookings.");
@@ -782,7 +783,7 @@ const loadHostBookings = async () => {
   }
 
   try {
-    const response = await fetch("/api/bookings/host", { headers: { ...authHeaders() } });
+    const response = await fetch(`${API_BASE}/api/bookings/host`, { headers: { ...authHeaders() } });
     const data = await response.json();
     if (!response.ok) {
       throw new Error(data.message || "Failed to load host bookings.");
@@ -810,7 +811,7 @@ const loadHostBookings = async () => {
 const loadHostProperties = async () => {
   try {
     const hostId = currentUser?.role === "host" ? currentUser.id : DEMO_HOST_ID;
-    const response = await fetch(`/api/properties/host/${hostId}`);
+    const response = await fetch(`${API_BASE}/api/properties/host/${hostId}`);
     if (!response.ok) {
       throw new Error("Failed to load host properties.");
     }
@@ -848,7 +849,7 @@ const wireHostForm = () => {
         throw new Error("Sign in as host to create listings.");
       }
       hostFormMessage.textContent = "Creating property...";
-      const response = await fetch(`/api/properties/host/${currentUser.id}`, {
+      const response = await fetch(`${API_BASE}/api/properties/host/${currentUser.id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", ...authHeaders() },
         body: JSON.stringify(payload),
@@ -869,7 +870,7 @@ const wireHostForm = () => {
 
 const loadProperties = async () => {
   try {
-    const response = await fetch("/api/properties");
+    const response = await fetch(`${API_BASE}/api/properties`);
     if (!response.ok) {
       throw new Error("Failed to load listings.");
     }
@@ -951,7 +952,7 @@ const wireAuthModal = () => {
   if (quickHostLogin) {
     quickHostLogin.addEventListener('click', async () => {
       try {
-        const response = await fetch('/api/auth/login', {
+        const response = await fetch(`${API_BASE}/api/auth/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: 'host@staynest.dev', password: 'demo_hash' })
@@ -972,7 +973,7 @@ const wireAuthModal = () => {
   if (quickGuestLogin) {
     quickGuestLogin.addEventListener('click', async () => {
       try {
-        const response = await fetch('/api/auth/login', {
+        const response = await fetch(`${API_BASE}/api/auth/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: 'guest@staynest.dev', password: 'demo_hash' })
@@ -995,7 +996,7 @@ const wireAuthForms = () => {
     event.preventDefault();
     const formData = new FormData(loginForm);
     try {
-      const response = await fetch("/api/auth/login", {
+      const response = await fetch(`${API_BASE}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -1022,7 +1023,7 @@ const wireAuthForms = () => {
     event.preventDefault();
     const formData = new FormData(registerForm);
     try {
-      const response = await fetch("/api/auth/register", {
+      const response = await fetch(`${API_BASE}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -1051,7 +1052,7 @@ const wireAuthForms = () => {
   logoutBtn.addEventListener("click", async () => {
     try {
       if (authToken) {
-        await fetch("/api/auth/logout", { method: "POST", headers: { ...authHeaders() } });
+        await fetch(`${API_BASE}/api/auth/logout`, { method: "POST", headers: { ...authHeaders() } });
       }
     } finally {
       setAuthState("", null);
