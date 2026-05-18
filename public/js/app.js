@@ -886,6 +886,49 @@ const wireAuthModal = () => {
       registerModal.classList.add("hidden");
     }
   });
+
+  // Quick Demo Login Buttons
+  const quickHostLogin = document.getElementById('quickHostLogin');
+  if (quickHostLogin) {
+    quickHostLogin.addEventListener('click', async () => {
+      try {
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: 'host@staynest.dev', password: 'demo_hash' })
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.message || 'Demo Host login failed.');
+        setAuthState(data.token, data.user);
+        loginMessage.textContent = `Welcome ${data.user.full_name}`;
+        setTimeout(() => { loginModal.classList.add('hidden'); }, 1000);
+        await Promise.all([loadHostProperties(), loadGuestBookings(), loadHostBookings()]);
+      } catch (error) {
+        loginMessage.textContent = error.message;
+      }
+    });
+  }
+
+  const quickGuestLogin = document.getElementById('quickGuestLogin');
+  if (quickGuestLogin) {
+    quickGuestLogin.addEventListener('click', async () => {
+      try {
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: 'guest@staynest.dev', password: 'demo_hash' })
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.message || 'Demo Guest login failed.');
+        setAuthState(data.token, data.user);
+        loginMessage.textContent = `Welcome ${data.user.full_name}`;
+        setTimeout(() => { loginModal.classList.add('hidden'); }, 1000);
+        await Promise.all([loadHostProperties(), loadGuestBookings(), loadHostBookings()]);
+      } catch (error) {
+        loginMessage.textContent = error.message;
+      }
+    });
+  }
 };
 
 const wireAuthForms = () => {
