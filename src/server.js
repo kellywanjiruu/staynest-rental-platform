@@ -22,17 +22,20 @@ async function initDb() {
   try {
     const res = await pool.query("SELECT to_regclass('public.users') as exists");
     if (!res.rows[0].exists) {
-      console.log("Database tables missing. Initializing...");
+      console.log("Database tables missing. Creating schema...");
       const schema = fs.readFileSync(path.join(__dirname, "..", "db", "schema.sql"), "utf8");
-      const seed = fs.readFileSync(path.join(__dirname, "..", "db", "seed.sql"), "utf8");
       await pool.query(schema);
-      await pool.query(seed);
-      console.log("Database initialized successfully.");
     }
+    
+    console.log("Seeding database (idempotent)...");
+    const seed = fs.readFileSync(path.join(__dirname, "..", "db", "seed.sql"), "utf8");
+    await pool.query(seed);
+    console.log("Database initialized/seeded successfully.");
   } catch (error) {
     console.error("Failed to check or initialize database:", error.message);
   }
 }
+
 
 // Call DB init
 await initDb();

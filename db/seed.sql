@@ -214,3 +214,49 @@ WHERE u.email = 'host@staynest.dev'
 AND NOT EXISTS (
   SELECT 1 FROM properties p WHERE p.title = 'Serene Villa in Machakos'
 );
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Cozy Studio in Eldoret',
+       'Compact and fully furnished studio apartment in a quiet neighborhood, ideal for students or solo travelers.',
+       'Eldoret',
+       'Kenya',
+       2500.00,
+       1,
+       'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Cozy Studio in Eldoret'
+);
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Luxury Camp in Masai Mara',
+       'Experience the wild in luxury. Tented camp with en-suite bathrooms and stunning savanna views.',
+       'Masai Mara',
+       'Kenya',
+       15000.00,
+       2,
+       'https://images.unsplash.com/photo-1493246507139-91e8bef99c02?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Luxury Camp in Masai Mara'
+);
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Swahili Villa in Lamu',
+       'Traditional Swahili architecture with modern luxury. Rooftop terrace with ocean breeze.',
+       'Lamu',
+       'Kenya',
+       12000.00,
+       4,
+       'https://images.unsplash.com/photo-1544984243-41ec104db98d?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Swahili Villa in Lamu'
+);
+

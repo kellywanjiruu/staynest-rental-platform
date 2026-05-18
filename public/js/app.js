@@ -361,6 +361,63 @@ const propertyMetadata = {
       { name: "Kiboko Bay Boat Rides", distance: "6 mins drive" }
     ]
   }
+  ,
+  11: {
+    description: "Modern Bedsitter near Kahawa Sukari. Perfect for students or solo travelers seeking a quiet, accessible space.",
+    amenities: ["Free Wi-Fi", "Hot Shower", "Secure Gate", "Study Desk"],
+    attractions: [
+      { name: "Kenyatta University", distance: "10 mins walk" },
+      { name: "Unicity Mall", distance: "5 mins drive" }
+    ]
+  },
+  12: {
+    description: "Spacious and modern bedsitter near JKUAT main gate. Features a kitchenette and high-speed internet.",
+    amenities: ["High-speed Wi-Fi", "Kitchenette", "Hot Shower", "CCTV Security"],
+    attractions: [
+      { name: "JKUAT Main Gate", distance: "5 mins walk" },
+      { name: "Juja City Mall", distance: "10 mins walk" }
+    ]
+  },
+  13: {
+    description: "Beautiful vacation home overlooking Lake Nakuru, ideal for family getaways and nature lovers.",
+    amenities: ["Lake View", "Free Wi-Fi", "Spacious Garden", "Fully Equipped Kitchen"],
+    attractions: [
+      { name: "Lake Nakuru National Park", distance: "15 mins drive" },
+      { name: "Hyrax Hill Museum", distance: "10 mins drive" }
+    ]
+  },
+  14: {
+    description: "Quiet and luxurious villa with mountain views in Machakos, perfect for a peaceful retreat.",
+    amenities: ["Mountain Views", "Private Garden", "BBQ Area", "Free Wi-Fi"],
+    attractions: [
+      { name: "Machakos People's Park", distance: "15 mins drive" },
+      { name: "Kyamwilu Magical Hill", distance: "20 mins drive" }
+    ]
+  },
+  15: {
+    description: "Compact and fully furnished studio apartment in a quiet neighborhood in Eldoret, ideal for students or solo travelers.",
+    amenities: ["Free Wi-Fi", "Furnished", "Secure Parking", "Hot Shower"],
+    attractions: [
+      { name: "Moi University Town Campus", distance: "10 mins drive" },
+      { name: "Rupa's Mall", distance: "5 mins drive" }
+    ]
+  },
+  16: {
+    description: "Experience the wild in luxury. Tented camp with en-suite bathrooms and stunning savanna views in Masai Mara.",
+    amenities: ["Savanna Views", "En-suite Bathroom", "Full Board Meals", "Guided Safaris"],
+    attractions: [
+      { name: "Mara River Crossing", distance: "30 mins drive" },
+      { name: "Maasai Village", distance: "15 mins drive" }
+    ]
+  },
+  17: {
+    description: "Traditional Swahili architecture with modern luxury in Lamu. Rooftop terrace with ocean breeze.",
+    amenities: ["Ocean Breeze", "Rooftop Terrace", "Swahili Architecture", "Free Wi-Fi"],
+    attractions: [
+      { name: "Lamu Fort", distance: "5 mins walk" },
+      { name: "Shela Beach", distance: "15 mins by boat" }
+    ]
+  }
 };
 
 const openPropertyModal = (propertyId) => {

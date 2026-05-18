@@ -62,12 +62,13 @@ router.post("/register", async (req, res) => {
     );
     return res.status(201).json({ user: result.rows[0] });
   } catch (error) {
-    if (String(error.message).toLowerCase().includes("duplicate")) {
+    if (error.code === '23505') {
       return res.status(409).json({ message: "Email is already registered." });
     }
     console.error("Register failed:", error.message);
-    return res.status(500).json({ message: "Registration failed." });
+    return res.status(500).json({ message: `Registration failed: ${error.message}` });
   }
+
 });
 
 router.post("/login", async (req, res) => {
