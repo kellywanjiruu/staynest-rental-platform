@@ -273,7 +273,7 @@ const loadCurrentUser = async () => {
 const propertyMetadata = {
   1: {
     description: "Experience the pinnacle of urban luxury in this stunning double-story penthouse. Offering floor-to-ceiling windows with panoramic city views, high-end bespoke finishes, and a private rooftop terrace perfect for sunset viewing. Complete with premium chef's appliances and high-speed enterprise Wi-Fi.",
-    amenities: ["🏊 Private Pool", "📶 Gigabit Wi-Fi", "🔒 Gated Security", "🏋️ Home Gym", "☕ Espresso Machine", "🍳 Private Chef"],
+    amenities: ["Private Pool", "Gigabit Wi-Fi", "Gated Security", "Home Gym", "Espresso Machine", "Private Chef"],
     attractions: [
       { name: "Nairobi National Park", distance: "15 mins drive" },
       { name: "Karura Forest Nature Trails", distance: "12 mins drive" },
@@ -282,7 +282,7 @@ const propertyMetadata = {
   },
   2: {
     description: "A gorgeous luxury villa directly overlooking the white sands of Watamu Beach. Enjoy pristine ocean views, a private tropical infinity pool, and a fully furnished outdoor lounge designed to capture the perfect marine breeze. Ideal for large family getaways and intimate coastal retreats.",
-    amenities: ["🌊 Ocean Front", "🏊 Infinity Pool", "❄️ Air Conditioning", "📶 Free Wi-Fi", "🧹 Daily Housekeeping", "🌴 Tropical Garden"],
+    amenities: ["Ocean Front", "Infinity Pool", "Air Conditioning", "Free Wi-Fi", "Daily Housekeeping", "Tropical Garden"],
     attractions: [
       { name: "Watamu Marine National Park", distance: "5 mins walk" },
       { name: "Gede Ruins Historical Site", distance: "10 mins drive" },
@@ -291,7 +291,7 @@ const propertyMetadata = {
   },
   3: {
     description: "Nestled in the tranquil, rolling hills of Naivasha, this rustic countryside chalet blends old-world charm with modern convenience. Features an open stone fireplace, high vaulted pine ceilings, and a beautiful wrap-around veranda looking out over pristine grasslands populated by local wildlife.",
-    amenities: ["🔥 Cozy Fireplace", "📶 Free Wi-Fi", "🚗 Private Garage", "🌳 Private Acreage", "🪵 BBQ Grill Station", "🚲 Guided Bikes"],
+    amenities: ["Cozy Fireplace", "Free Wi-Fi", "Private Garage", "Private Acreage", "BBQ Grill Station", "Guided Bikes"],
     attractions: [
       { name: "Hell's Gate National Park", distance: "20 mins drive" },
       { name: "Lake Naivasha Boat Safaris", distance: "10 mins drive" },
@@ -300,7 +300,7 @@ const propertyMetadata = {
   },
   4: {
     description: "Welcome to paradise in this ultra-modern, sun-drenched sanctuary at Diani Beach. Features an expansive open-concept living pavilion, private lap pool, direct private beach access pathway, and curated contemporary African artwork. Includes full concierge and private butler options.",
-    amenities: ["🏖️ Direct Beach Access", "🏊 Private Lap Pool", "❄️ Air Conditioning", "📶 Gigabit Wi-Fi", "🍹 Cocktail Bar", "🤵 Butler Services"],
+    amenities: ["Direct Beach Access", "Private Lap Pool", "Air Conditioning", "Gigabit Wi-Fi", "Cocktail Bar", "Butler Services"],
     attractions: [
       { name: "Kongo Mosque Historic Beach", distance: "8 mins drive" },
       { name: "Colobus Conservation Reserve", distance: "12 mins drive" },
@@ -309,7 +309,7 @@ const propertyMetadata = {
   },
   5: {
     description: "An elegant, colonial-style homestead situated in the prestigious Karen neighborhood. Surrounded by lush, sprawling century-old gardens, this premium home offers classic rich timber panels, a vintage libraries study, private tennis court, and absolute peace and quiet away from the city hustle.",
-    amenities: ["🎾 Tennis Court", "🌳 Sprawling Gardens", "📶 High-Speed Wi-Fi", "🔒 Secure Gates", "📚 Private Study", "☕ Tea Veranda"],
+    amenities: ["Tennis Court", "Sprawling Gardens", "High-Speed Wi-Fi", "Secure Gates", "Private Study", "Tea Veranda"],
     attractions: [
       { name: "Karen Blixen Museum", distance: "6 mins drive" },
       { name: "David Sheldrick Elephant Trust", distance: "12 mins drive" },
@@ -318,7 +318,7 @@ const propertyMetadata = {
   },
   6: {
     description: "Step back in time inside this beautifully restored 18th-century Swahili manor in Mombasa Old Town. Showcases intricate hand-carved mahogany doors, traditional plaster alcoves, a fresh open-air central courtyard, and premium authentic Swahili coast antique furniture.",
-    amenities: ["🏺 Antique Furniture", "🌿 Central Courtyard", "❄️ Ceiling Fans", "📶 Free Wi-Fi", "🍽️ Swahili Dinner Options", "🧹 Housekeeper"],
+    amenities: ["Antique Furniture", "Central Courtyard", "Ceiling Fans", "Free Wi-Fi", "Swahili Dinner Options", "Housekeeper"],
     attractions: [
       { name: "Fort Jesus World Heritage Site", distance: "3 mins walk" },
       { name: "Mombasa Old Port Harbor", distance: "5 mins walk" },
@@ -327,7 +327,7 @@ const propertyMetadata = {
   },
   7: {
     description: "A private, luxurious coastal escape nestled next to the marine turtle sanctuary in Watamu. Features elegant limestone floors, open breeze design, a private salt-water dipping pool, and premium sunset views over the creek mangrove forests.",
-    amenities: ["🌊 Creek & Ocean Views", "🏊 Dipping Pool", "❄️ Air Conditioning", "📶 Free Wi-Fi", "🐢 Eco-Friendly Power", "🍹 Mangrove Deck"],
+    amenities: ["Creek & Ocean Views", "Dipping Pool", "Air Conditioning", "Free Wi-Fi", "Eco-Friendly Power", "Mangrove Deck"],
     attractions: [
       { name: "Mida Creek Mangrove Boardwalk", distance: "8 mins drive" },
       { name: "Turtle Watch Protection Center", distance: "4 mins drive" },
@@ -336,7 +336,7 @@ const propertyMetadata = {
   },
   8: {
     description: "Located high in the peaceful hills of Eldoret, this modern highland lodge offers fresh pine breezes, an open timber deck, organic garden access, and stunning panoramic views of the Great Rift Valley. Perfect for nature lovers and high-altitude athletes.",
-    amenities: ["🏔️ Valley Views", "🔥 Wood Stove", "📶 Free Wi-Fi", "🥬 Organic Farm Access", "🚗 Secure Parking", "🚲 Mountain Bikes"],
+    amenities: ["Valley Views", "Wood Stove", "Free Wi-Fi", "Organic Farm Access", "Secure Parking", "Mountain Bikes"],
     attractions: [
       { name: "Kapolet Forest Scenic Reserve", distance: "30 mins drive" },
       { name: "Eldoret Athletic Training Track", distance: "15 mins drive" },
@@ -345,7 +345,7 @@ const propertyMetadata = {
   },
   9: {
     description: "An spectacular glass-walled luxury eco-cabin situated in Nanyuki, directly facing the snow-capped peaks of Mount Kenya. Completely solar-powered, featuring an outdoor wood-fired cedar hot tub, a fire pit, and direct views of wandering zebras and impalas.",
-    amenities: ["🏔️ Mount Kenya Views", "🪵 Wood Hot Tub", "☀️ 100% Solar Powered", "🔥 Outdoor Fire Pit", "📶 Free Wi-Fi", "🔭 Wildlife Telescope"],
+    amenities: ["Mount Kenya Views", "Wood Hot Tub", "100% Solar Powered", "Outdoor Fire Pit", "Free Wi-Fi", "Wildlife Telescope"],
     attractions: [
       { name: "Ol Pejeta Conservancy", distance: "20 mins drive" },
       { name: "Mount Kenya National Park", distance: "15 mins drive" },
@@ -354,7 +354,7 @@ const propertyMetadata = {
   },
   10: {
     description: "A premium lakeside villa in Kisumu boasting direct access to the shores of Lake Victoria. Features wrap-around floor-to-ceiling glass walls, a private jetty, a stunning lake-facing pool, and arguably the finest sunset views in East Africa. Includes optional private boat captain services.",
-    amenities: ["🌅 Lake Victoria Shore", "🏊 Lakefront Pool", "❄️ Air Conditioning", "📶 High-speed Wi-Fi", "⛵ Private Jetty", "🐠 Fresh Fish Dinners"],
+    amenities: ["Lake Victoria Shore", "Lakefront Pool", "Air Conditioning", "High-speed Wi-Fi", "Private Jetty", "Fresh Fish Dinners"],
     attractions: [
       { name: "Kisumu Impala Sanctuary", distance: "8 mins drive" },
       { name: "Dunga Hill Camp Sunset Point", distance: "5 mins drive" },
@@ -377,7 +377,7 @@ const openPropertyModal = (propertyId) => {
   // Load rich descriptions and metadata
   const meta = propertyMetadata[propertyId] || {
     description: property.description || "Comfortable stay with curated amenities and professional hosting.",
-    amenities: ["📶 Free Wi-Fi", "🚗 Free Parking", "🍳 Kitchen"],
+    amenities: ["Free Wi-Fi", "Free Parking", "Kitchen"],
     attractions: [{ name: "Local Town Centre", distance: "10 mins walk" }]
   };
 
@@ -385,7 +385,7 @@ const openPropertyModal = (propertyId) => {
 
   // Build Amenities list
   modalAmenitiesContainer.innerHTML = `
-    <h4 class="modal-section-title">✨ Premium Amenities</h4>
+    <h4 class="modal-section-title">Premium Amenities</h4>
     <div class="modal-amenities-grid">
       ${meta.amenities.map(amenity => `
         <div class="modal-amenity-badge">
@@ -397,18 +397,19 @@ const openPropertyModal = (propertyId) => {
 
   // Build Attractions list
   modalAttractionsContainer.innerHTML = `
-    <h4 class="modal-section-title">📍 Nearby Attractions Guide</h4>
+    <h4 class="modal-section-title">Nearby Attractions Guide</h4>
     <div class="modal-attractions-list">
       ${meta.attractions.map(attr => `
         <div class="modal-attraction-item">
           <div class="modal-attraction-label">
-            <span>🚶 ${attr.name}</span>
+            <span>${attr.name}</span>
           </div>
           <span class="modal-attraction-distance">${attr.distance}</span>
         </div>
       `).join("")}
     </div>
   `;
+
 
   propertyModal.classList.remove("hidden");
 };
@@ -612,7 +613,8 @@ const wireBookingButtons = () => {
         }
 
         message.className = "booking-message success-text";
-        message.textContent = `Booked stay successfully! (ID: #${bookingData.booking.id})`;
+        message.textContent = `Booked stay successfully! (ID: #${bookingData.booking.id}). You can contact the host at host@staynest.dev.`;
+
         await Promise.all([loadGuestBookings(), loadHostBookings()]);
       } catch (error) {
         message.className = "booking-message error-text";

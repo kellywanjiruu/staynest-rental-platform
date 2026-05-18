@@ -153,3 +153,64 @@ WHERE u.email = 'host@staynest.dev'
 AND NOT EXISTS (
   SELECT 1 FROM properties p WHERE p.title = 'Boutique Eco-Lodge in Watamu'
 );
+
+-- New Properties added to expand options
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Cozy Bedsitter in Kahawa Sukari',
+       'Affordable and private bedsitter near KU, ideal for students or solo travelers.',
+       'Kahawa',
+       'Kenya',
+       1500.00,
+       1,
+       'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Cozy Bedsitter in Kahawa Sukari'
+);
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Modern Bedsitter near JKUAT',
+       'Clean and secure bedsitter with fast internet, perfect for short stays or studies.',
+       'Juja',
+       'Kenya',
+       1200.00,
+       1,
+       'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Modern Bedsitter near JKUAT'
+);
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Scenic Lakeview Home in Nakuru',
+       'Beautiful vacation home overlooking Lake Nakuru, ideal for family getaways.',
+       'Nakuru',
+       'Kenya',
+       8000.00,
+       5,
+       'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Scenic Lakeview Home in Nakuru'
+);
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Serene Villa in Machakos',
+       'Quiet and luxurious villa with mountain views, perfect for a peaceful retreat.',
+       'Machakos',
+       'Kenya',
+       10000.00,
+       4,
+       'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Serene Villa in Machakos'
+);
