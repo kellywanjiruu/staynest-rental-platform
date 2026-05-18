@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StayNest | Short-Term Rentals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="logo-wrapper">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <span class="logo-text">StayNest</span>
+        </div>
+        <div class="auth-controls">
+          <span id="authStatus" class="status">Not signed in</span>
+          <button id="openLoginBtn" class="host-btn" type="button">Sign In</button>
+          <button id="openRegisterBtn" class="ghost-btn" type="button">Register</button>
+          <button id="logoutBtn" class="ghost-btn" type="button">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <h2>Find your next stay</h2>
+        <p>Professional short-term rental platform with curated homes.</p>
+        <div class="hero-chips">
+          <span>Verified hosts</span>
+          <span>Instant booking</span>
+          <span>Flexible cancellation</span>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title-row">
+          <h3>Featured stays</h3>
+          <span id="statusText" class="status">Loading listings...</span>
+        </div>
+        <div class="listing-toolbar">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input id="searchInput" type="text" placeholder="Search by title, city, country..." />
+          </div>
+          <select id="guestFilterSelect">
+            <option value="">Any guests</option>
+            <option value="2">2+ guests</option>
+            <option value="4">4+ guests</option>
+            <option value="6">6+ guests</option>
+          </select>
+          <select id="sortSelect">
+            <option value="newest">Newest</option>
+            <option value="priceAsc">Price: low to high</option>
+            <option value="priceDesc">Price: high to low</option>
+          </select>
+        </div>
+        <div id="propertiesGrid" class="properties-grid"></div>
+      </section>
+
+      <!-- Premium Tabbed Dashboard Hub -->
+      <section id="dashboardHub" class="dashboard-hub-section hidden">
+        <div class="dashboard-hub-header">
+          <div class="hub-header-title">
+            <h3>Dashboard Hub</h3>
+            <span class="status">Active Account Portal</span>
+          </div>
+          <div id="dashboardTabs" class="dashboard-tabs">
+            <button id="tabOverview" class="tab-btn active-tab" data-tab="panelOverview" type="button">📊 Overview</button>
+            <button id="tabGuestStays" class="tab-btn" data-tab="panelGuestStays" type="button">✈️ My Stays</button>
+            <button id="tabHostListings" class="tab-btn" data-tab="panelHostListings" type="button">🔑 Listings Manager</button>
+            <button id="tabHostBookings" class="tab-btn" data-tab="panelHostBookings" type="button">💼 Reservations</button>
+          </div>
+        </div>
+
+        <div class="dashboard-panels">
+          <!-- PANEL 1: Overview & Insights -->
+          <div id="panelOverview" class="dashboard-panel active-panel">
+            <div class="insights-grid">
+              <article class="insight-card" id="cardTotalListings">
+                <p class="insight-label">Total listings</p>
+                <p id="insightListings" class="insight-value">0</p>
+              </article>
+              <article class="insight-card" id="cardGuestBookings">
+                <p class="insight-label">My bookings</p>
+                <p id="insightGuestBookings" class="insight-value">0</p>
+              </article>
+              <article class="insight-card" id="cardHostBookings">
+                <p class="insight-label">Host bookings</p>
+                <p id="insightHostBookings" class="insight-value">0</p>
+              </article>
+              <article class="insight-card" id="cardHostRevenue">
+                <p class="insight-label">Host revenue</p>
+                <p id="insightRevenue" class="insight-value">KSh 0</p>
+              </article>
+            </div>
+          </div>
+
+          <!-- PANEL 2: Guest Stays -->
+          <div id="panelGuestStays" class="dashboard-panel">
+            <div class="section-title-row">
+              <h4>My Booked Stays</h4>
+              <span class="status">Guest Ledger</span>
+            </div>
+            <div id="guestBookingsList" class="host-properties-list"></div>
+          </div>
+
+          <!-- PANEL 3: Host Listing Manager -->
+          <div id="panelHostListings" class="dashboard-panel">
+            <div class="host-manager-grid">
+              <div class="manager-form-column">
+                <div class="section-title-row">
+                  <h4>Register New Property</h4>
+                  <span class="status">Listing Engine</span>
+                </div>
+                <form id="hostPropertyForm" class="host-form">
+                  <input type="text" name="title" placeholder="Property title" required />
+                  <input type="text" name="city" placeholder="City" required />
+                  <input type="text" name="country" placeholder="Country" required />
+                  <input type="number" name="pricePerNight" placeholder="Price per night" min="1" required />
+                  <input type="number" name="maxGuests" placeholder="Max guests" min="1" required />
+                  <input type="url" name="coverImageUrl" placeholder="Cover image URL (optional)" />
+                  <textarea name="description" placeholder="Property description" required></textarea>
+                  <button type="submit" class="book-btn">Add property</button>
+                  <p id="hostFormMessage" class="booking-message"></p>
+                </form>
+              </div>
+              <div class="manager-list-column">
+                <div class="section-title-row">
+                  <h4>My Listed Properties</h4>
+                  <span class="status">Calendar Block-Out</span>
+                </div>
+                <div id="hostPropertiesList" class="host-properties-list"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PANEL 4: Host Reservation Manager -->
+          <div id="panelHostBookings" class="dashboard-panel">
+            <div class="section-title-row">
+              <h4>Guest Reservation Requests</h4>
+              <span class="status">Approval Desk</span>
+            </div>
+            <div id="hostBookingsList" class="host-properties-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="propertyModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-card">
+        <button id="closeModalBtn" type="button" class="close-modal-btn">Close</button>
+        <img id="modalImage" class="modal-image" src="" alt="Property image" />
+        <h3 id="modalTitle"></h3>
+        <p id="modalLocation" class="property-meta"></p>
+        <p id="modalPrice" class="property-meta"></p>
+        <p id="modalDescription" class="modal-description"></p>
+        <div id="modalAmenitiesContainer"></div>
+        <div id="modalAttractionsContainer"></div>
+      </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+      <div class="modal-card">
+        <button id="closeLoginModalBtn" type="button" class="close-modal-btn">Close</button>
+        <h3 id="loginModalTitle">Sign In</h3>
+        <form id="loginForm" class="host-form">
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <button type="submit" class="book-btn">Login</button>
+        </form>
+        <p id="loginMessage" class="booking-message"></p>
+        <p class="auth-switch-text">Don't have an account? <a id="switchToRegisterLink" href="#">Register here</a></p>
+      </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="registerModalTitle">
+      <div class="modal-card">
+        <button id="closeRegisterModalBtn" type="button" class="close-modal-btn">Close</button>
+        <h3 id="registerModalTitle">Create Account</h3>
+        <form id="registerForm" class="host-form">
+          <input type="text" name="fullName" placeholder="Full name" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="password" name="password" placeholder="Password (min 6)" minlength="6" required />
+          <select name="role">
+            <option value="guest">Guest</option>
+            <option value="host">Host</option>
+          </select>
+          <button type="submit" class="book-btn">Create account</button>
+        </form>
+        <p id="registerMessage" class="booking-message"></p>
+        <p class="auth-switch-text">Already have an account? <a id="switchToLoginLink" href="#">Sign In here</a></p>
+      </div>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

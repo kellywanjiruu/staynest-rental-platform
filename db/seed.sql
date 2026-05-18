@@ -1,0 +1,155 @@
+INSERT INTO users (full_name, email, password_hash, role)
+VALUES
+  ('Demo Host', 'host@staynest.dev', 'demo_hash', 'host'),
+  ('Demo Guest', 'guest@staynest.dev', 'demo_hash', 'guest')
+ON CONFLICT (email) DO NOTHING;
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Modern Apartment in Kilimani',
+       'Stylish apartment with reliable Wi-Fi, balcony, and easy access to malls and cafes.',
+       'Nairobi',
+       'Kenya',
+       6500.00,
+       2,
+       'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Modern Apartment in Kilimani'
+);
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Spacious Family House in Karen',
+       'Private compound home ideal for families with secure parking and garden space.',
+       'Nairobi',
+       'Kenya',
+       12500.00,
+       6,
+       'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Spacious Family House in Karen'
+);
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Cozy Studio in Westlands',
+       'Compact and modern studio for solo travelers and business stays.',
+       'Nairobi',
+       'Kenya',
+       3800.00,
+       1,
+       'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Cozy Studio in Westlands'
+);
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Luxury Penthouse in Upper Hill',
+       'Premium skyline penthouse with full city view and concierge-ready setup.',
+       'Nairobi',
+       'Kenya',
+       18000.00,
+       4,
+       'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Luxury Penthouse in Upper Hill'
+);
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Beachfront Apartment in Nyali',
+       'Calm coastal apartment with ocean breeze, ideal for weekend retreats.',
+       'Mombasa',
+       'Kenya',
+       9200.00,
+       3,
+       'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Beachfront Apartment in Nyali'
+);
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Garden Cottage in Naivasha',
+       'Quiet cottage for nature lovers with lake access and mountain views nearby.',
+       'Naivasha',
+       'Kenya',
+       7100.00,
+       4,
+       'https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Garden Cottage in Naivasha'
+);
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Sunset Lake Villa in Kisumu',
+       'Stunning lakeside villa offering direct access to Lake Victoria, private jetty, and breathtaking sunsets.',
+       'Kisumu',
+       'Kenya',
+       15000.00,
+       5,
+       'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Sunset Lake Villa in Kisumu'
+);
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Rustic Cabin in Nanyuki',
+       'Cozy timber cabin nestled in the forest clearing with beautiful views of Mount Kenya peak.',
+       'Nanyuki',
+       'Kenya',
+       8500.00,
+       4,
+       'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Rustic Cabin in Nanyuki'
+);
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Charming Townhouse in Eldoret',
+       'Modern, secure gated townhouse ideal for athletic training camps, corporate stays or family tours.',
+       'Eldoret',
+       'Kenya',
+       5200.00,
+       3,
+       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Charming Townhouse in Eldoret'
+);
+
+INSERT INTO properties (host_id, title, description, city, country, price_per_night, max_guests, cover_image_url)
+SELECT u.id,
+       'Boutique Eco-Lodge in Watamu',
+       'Exquisite eco-lodge with palm thatched roof, tropical gardens, and a short walk to marine park beaches.',
+       'Watamu',
+       'Kenya',
+       13800.00,
+       4,
+       'https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1200&q=80'
+FROM users u
+WHERE u.email = 'host@staynest.dev'
+AND NOT EXISTS (
+  SELECT 1 FROM properties p WHERE p.title = 'Boutique Eco-Lodge in Watamu'
+);
