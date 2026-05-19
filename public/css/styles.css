@@ -303,7 +303,7 @@ body {
 .properties-grid {
   margin: 1.5rem 0 3.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   gap: 1.5rem;
 }
 
@@ -682,6 +682,13 @@ body {
   justify-content: space-between;
   font-size: 0.85rem;
   color: var(--muted);
+}
+
+.price-breakdown-row span:last-child {
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  text-align: right;
 }
 
 .price-breakdown-divider {

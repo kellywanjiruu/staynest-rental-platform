@@ -238,7 +238,7 @@ SELECT u.id,
        'Kenya',
        15000.00,
        2,
-       'https://images.unsplash.com/photo-1493246507139-91e8bef99c02?auto=format&fit=crop&w=1200&q=80'
+       'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1200&q=80'
 FROM users u
 WHERE u.email = 'host@staynest.dev'
 AND NOT EXISTS (
@@ -253,10 +253,21 @@ SELECT u.id,
        'Kenya',
        12000.00,
        4,
-       'https://images.unsplash.com/photo-1544984243-41ec104db98d?auto=format&fit=crop&w=1200&q=80'
+       'https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?auto=format&fit=crop&w=1200&q=80'
 FROM users u
 WHERE u.email = 'host@staynest.dev'
 AND NOT EXISTS (
   SELECT 1 FROM properties p WHERE p.title = 'Swahili Villa in Lamu'
 );
+
+-- Force update image URLs for existing installations
+UPDATE properties SET cover_image_url = 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1200&q=80' WHERE title = 'Luxury Camp in Masai Mara';
+UPDATE properties SET cover_image_url = 'https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?auto=format&fit=crop&w=1200&q=80' WHERE title = 'Swahili Villa in Lamu';
+
+
+
+
+
+
+
 
