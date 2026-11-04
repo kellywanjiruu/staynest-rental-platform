@@ -1,7 +1,7 @@
 {
-  "name": "project-github",
+  "name": "staynest-rental-platform",
   "version": "1.0.0",
-  "description": "",
+  "description": "A full-stack rental platform built with Node.js, Express, and PostgreSQL.",
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js",
