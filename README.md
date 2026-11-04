@@ -34,15 +34,23 @@ git clone https://github.com/kellywanjiruu/staynest-rental-platform.git
 cd staynest-rental-platform
 npm install
 
-# 2️⃣ Environment variables
-cp .env.example .env          # ← edit the file
-# set DATABASE_URL to your local Postgres instance, e.g.
-# DATABASE_URL=postgresql://user:password@localhost:5432/staynest
+# 2️⃣ Create the PostgreSQL database (run once)
+createdb staynest
 
-# 3️⃣ Database setup (run once)
-psql $DATABASE_URL < db/schema.sql
-psql $DATABASE_URL < db/seed.sql
+# 3️⃣ Configure environment variables
+cp .env.example .env
+# Edit .env and set DATABASE_URL to your local PostgreSQL connection, e.g.
+# DATABASE_URL=postgresql://postgres:your_password@localhost:5432/staynest
 
-# 4️⃣ Start the dev server
+# 4️⃣ Start the development server
 npm run dev
+```
+
+**Database initialization:** On startup, the server checks whether the database tables exist. If they do not, it creates them from `db/schema.sql`. It then runs `db/seed.sql` to insert the demo users and listings.
+
+**Optional manual setup:** If you prefer to initialize the database yourself, run these commands after creating the database and configuring `DATABASE_URL`:
+
+```bash
+psql "$DATABASE_URL" -f db/schema.sql
+psql "$DATABASE_URL" -f db/seed.sql
 ```
